@@ -1,0 +1,14 @@
+{
+  "name": "Regression tests newman and postman",
+  "version": "1.0.0",
+  "description": "Api Tests with postman and newman",
+  "scripts": {
+    "test": "newman run"
+    
+  },  
+  "author": "Matheus Muniz",
+  "license": "MIT",
+  "devDependencies": {
+    "newman": "^6.0.0"
+  }
+}
