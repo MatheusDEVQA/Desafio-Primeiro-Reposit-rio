@@ -1,4 +1,4 @@
-# Desafio-Primeiro-Repositrio
-Criando repositório para versionamento com Git
+## Api Regression tests using Postman and Newman
 
-## Estudo de funções e comando do Git Bash
+
+#### Automatizar testes regressivos de api rest para eserem executados por linhas de comandos.
