@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Api Tests with postman and newman",
   "scripts": {
-    "test": "newman run"
+    "newman": "newman run",
+    "test": "node testRunner.js"
     
   },  
   "author": "Matheus Muniz",
