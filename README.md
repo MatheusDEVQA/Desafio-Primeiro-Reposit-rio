@@ -5,4 +5,4 @@
 
 ### Run tests
 
-Run the command `npm test context`
+Run the command `npm test <context name> <environment name>`
