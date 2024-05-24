@@ -1,0 +1,11 @@
+version: '3'
+services:
+
+  sicredi-dbc-tests:
+    container_name: sicredi-dbc-tests
+    image: postman/newman:latest
+    volumes:
+      - .:/src
+    working_dir: /src
+    entryoint: "sh"
+    command: "-c \"npm run newman:sicrediDbcTests"

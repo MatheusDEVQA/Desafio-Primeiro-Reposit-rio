@@ -4,8 +4,8 @@
   "description": "Api Tests with postman and newman",
   "scripts": {
     "newman": "newman run",
-    "test": "node testRunner.js"
-    
+    "test": "node testRunner.js",
+    "newman:sicrediDbcTests": "npm test sicredi_dbc sandbox"
   },  
   "author": "Matheus Muniz",
   "license": "MIT",
