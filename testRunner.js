@@ -18,7 +18,9 @@ try {
 }
 
 function runTests(context, environment) {
+
     let reporters = ['junit', 'cli', 'json'];
+
     newman.run({
         collection: collectionFile,
         environment: environmentFile,
@@ -27,11 +29,27 @@ function runTests(context, environment) {
         iterationCount: 1,
         reporter: {
             junit: {
-                export: `newman/${context}.xml`
+                export: `newman/${environment}.${context}.xml`
             },
             json: {
-                export: `newman/${context}.json`
+                export: `newman/${environment}.${context}.json`
             }
-        }
-    })
+        },
+        timeoutRequest: 45000,
+        sslClientCertList: [
+            {
+                name: 'mTLS',
+                matches: [`https://auth.${environment}.service.com.br/*`, `https://api-mtls.${environment}.service.com.br/*`],
+                key: { src: `./mTLS-certificates/${environment}/private_key.pem` },
+                cert: { src: `` },
+                passphrase: `fdfki2l@dfs`
+            }
+        ]
+    },
+        function (err, summary) {
+            if (err || summary.run.stats.assertions.failed || summary.run.stats.tests.failed) {
+                console.error(summary.run.failures.length, `errors running '${context}' tests`)
+                process.exit(1)
+            } else console.log(`'${context}' Tests finished successfully`)
+        })
 }
